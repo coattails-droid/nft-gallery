@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — View any wallet's NFTs</title>
+<meta name="description" content="Paste any Ethereum address and view its NFT collection, one piece at a time. No login, no wallet connection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">GALLERY</span>
+    </div>
+    <form id="lookup-form" class="lookup" autocomplete="off">
+      <input id="address-input" class="lookup-input" type="text" spellcheck="false"
+             placeholder="Paste an Ethereum address — 0x…" aria-label="Ethereum wallet address">
+      <button type="submit" class="btn">View</button>
+    </form>
+  </div>
+</header>
+
+<main class="stage">
+  <div class="viewer" id="viewer">
+    <div class="frame" id="frame" aria-live="polite"></div>
+
+    <button class="nav nav-prev" id="prev-btn" type="button" aria-label="Previous piece">‹</button>
+    <button class="nav nav-next" id="next-btn" type="button" aria-label="Next piece">›</button>
+
+    <button class="fs-btn" id="fs-btn" type="button" aria-label="Fullscreen">⛶</button>
+    <button class="fs-exit" id="fs-exit" type="button" aria-label="Exit fullscreen">✕</button>
+
+    <div class="spin hidden" id="spin" aria-hidden="true"></div>
+  </div>
+
+  <div class="captionbar wrap">
+    <div class="caption" id="caption"></div>
+    <div class="tools">
+      <span class="counter" id="counter"></span>
+      <a class="tool-link hidden" id="opensea-link" href="#" target="_blank" rel="noopener">OpenSea ↗</a>
+      <label class="toggle" title="Hide likely-spam airdrops">
+        <input type="checkbox" id="spam-toggle" checked>
+        <span class="toggle-track"><span class="toggle-dot"></span></span>
+        Hide spam
+      </label>
+      <button class="tool-link" id="share-btn" type="button">Copy link</button>
+    </div>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
